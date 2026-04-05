@@ -116,7 +116,7 @@ export const sections = [
     title: 'Свяжитесь с нами',
     content: 'Ответим на любые вопросы и запишем на пробный урок.',
     contacts: [
-      { icon: 'Phone', label: 'Телефон', value: '8 800 535 35 35' },
+      { icon: 'Phone', label: 'Телефон', value: '+8 800 535 35 35' },
       { icon: 'MapPin', label: 'Адрес', value: 'Санкт-Петербург, Невский проспект, 115' },
       { icon: 'Clock', label: 'Режим работы', value: 'Пн–Сб: 10:00 – 21:00' },
       { icon: 'Mail', label: 'Email', value: 'info@leggeromusicschool.ru' },
