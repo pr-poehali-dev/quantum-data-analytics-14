@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, onBooking }: SectionProps) {
   return (
     <section
       id={id}
@@ -75,6 +75,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
             <Button
               variant="outline"
               size="lg"
+              onClick={onBooking}
               className="text-[#FF4D00] bg-transparent border-[#FF4D00] hover:bg-[#FF4D00] hover:text-black transition-colors"
             >
               {buttonText}

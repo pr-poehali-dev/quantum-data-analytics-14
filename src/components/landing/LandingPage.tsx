@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Section from './Section'
 import Layout from './Layout'
+import BookingModal from './BookingModal'
 import { sections } from './sections'
 
 export default function LandingPage() {
   const [activeSection, setActiveSection] = useState(0)
+  const [bookingOpen, setBookingOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ container: containerRef })
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
@@ -43,8 +45,10 @@ export default function LandingPage() {
 
   return (
     <Layout>
+      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
       <div className="fixed top-0 left-0 z-30 p-6">
-        <span className="text-white text-xl font-bold tracking-widest uppercase">Leggero</span><span className="text-neutral-400 text-sm ml-2 tracking-wide">музыкальная школа</span>
+        <span className="text-white text-xl font-bold tracking-widest uppercase">Leggero</span>
+        <span className="text-neutral-400 text-sm ml-2 tracking-wide">музыкальная школа</span>
       </div>
       <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
         {sections.map((section, index) => (
@@ -70,6 +74,7 @@ export default function LandingPage() {
             key={section.id}
             {...section}
             isActive={index === activeSection}
+            onBooking={() => setBookingOpen(true)}
           />
         ))}
       </div>
