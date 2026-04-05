@@ -25,7 +25,7 @@ export const sections = [
       { name: 'Барабаны', icon: 'Drum' },
       { name: 'Флейта', icon: 'Wind' },
       { name: 'Скрипка', icon: 'Violin' },
-      { name: 'Саксофон', icon: 'Music4' },
+
     ]
   },
   {
