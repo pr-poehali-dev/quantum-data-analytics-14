@@ -9,6 +9,7 @@ export interface Section {
   buttonText?: string
   instruments?: { name: string; icon: string }[]
   faq?: { q: string; a: string }[]
+  pricing?: { name: string; price: string; period: string; features: string[]; highlight?: boolean }[]
 }
 
 export interface SectionProps extends Section {

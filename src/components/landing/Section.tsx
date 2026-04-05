@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, onBooking }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, onBooking }: SectionProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
@@ -64,6 +64,43 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               >
                 <Icon name={item.icon} fallback="Music" size={16} className="text-[#FF4D00]" />
                 {item.name}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {pricing && (
+          <motion.div
+            className="flex flex-wrap gap-5 mt-10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {pricing.map((plan, i) => (
+              <motion.div
+                key={plan.name}
+                className={`relative flex flex-col rounded-2xl px-6 py-6 w-full max-w-[220px] border transition-colors ${
+                  plan.highlight
+                    ? 'border-[#FF4D00] bg-[#FF4D00]/10'
+                    : 'border-neutral-800 bg-neutral-900/50'
+                }`}
+                initial={{ opacity: 0, y: 24 }}
+                animate={isActive ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+              >
+                {plan.highlight && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF4D00] text-black text-xs font-bold px-3 py-1 rounded-full">Популярный</span>
+                )}
+                <p className="text-neutral-400 text-sm mb-3">{plan.name}</p>
+                <p className="text-white text-3xl font-bold">{plan.price} <span className="text-base font-normal text-neutral-500">₽</span></p>
+                <p className="text-neutral-600 text-xs mb-4">/ {plan.period}</p>
+                <ul className="space-y-2">
+                  {plan.features.map(f => (
+                    <li key={f} className="flex items-center gap-2 text-neutral-300 text-sm">
+                      <Icon name="Check" size={14} className="text-[#FF4D00] shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </motion.div>
