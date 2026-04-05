@@ -43,6 +43,9 @@ export default function LandingPage() {
 
   return (
     <Layout>
+      <div className="fixed top-0 left-0 z-30 p-6">
+        <span className="text-white text-xl font-bold tracking-widest uppercase">Leggero</span>
+      </div>
       <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
         {sections.map((section, index) => (
           <button
