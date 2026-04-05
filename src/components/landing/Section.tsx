@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, onBooking }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, reviews, contacts, onBooking }: SectionProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
@@ -130,6 +130,57 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
                     </li>
                   ))}
                 </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {reviews && (
+          <motion.div
+            className="flex flex-col gap-5 mt-10 max-w-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {reviews.map((review, i) => (
+              <motion.div
+                key={i}
+                className="border border-neutral-800 rounded-2xl px-6 py-5 bg-neutral-900/50"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isActive ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.12 }}
+              >
+                <p className="text-neutral-300 text-sm md:text-base italic mb-3">{review.text}</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-white font-medium text-sm">{review.name}</span>
+                  <span className="text-neutral-600">·</span>
+                  <span className="text-[#FF4D00] text-sm">{review.instrument}</span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {contacts && (
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10 max-w-xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {contacts.map((item, i) => (
+              <motion.div
+                key={item.label}
+                className="flex items-center gap-4 border border-neutral-800 rounded-2xl px-5 py-4 bg-neutral-900/50"
+                initial={{ opacity: 0, y: 16 }}
+                animate={isActive ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+              >
+                <div className="w-10 h-10 rounded-full bg-[#FF4D00]/10 flex items-center justify-center shrink-0">
+                  <Icon name={item.icon} fallback="Info" size={18} className="text-[#FF4D00]" />
+                </div>
+                <div>
+                  <p className="text-neutral-500 text-xs">{item.label}</p>
+                  <p className="text-white text-sm font-medium">{item.value}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
