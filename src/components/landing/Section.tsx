@@ -1,9 +1,12 @@
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, onBooking }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, onBooking }: SectionProps) {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <section
       id={id}
@@ -61,6 +64,50 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               >
                 <Icon name={item.icon} fallback="Music" size={16} className="text-[#FF4D00]" />
                 {item.name}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {faq && (
+          <motion.div
+            className="mt-8 max-w-2xl w-full space-y-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {faq.map((item, i) => (
+              <motion.div
+                key={i}
+                className="border border-neutral-800 rounded-xl overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isActive ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
+              >
+                <button
+                  className="w-full flex items-center justify-between px-5 py-4 text-left text-white hover:bg-neutral-900 transition-colors"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span className="font-medium">{item.q}</span>
+                  <Icon
+                    name={openFaq === i ? "ChevronUp" : "ChevronDown"}
+                    size={18}
+                    className="text-[#FF4D00] shrink-0 ml-4"
+                  />
+                </button>
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      key="answer"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-5 pb-4 text-neutral-400 text-sm md:text-base">{item.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </motion.div>

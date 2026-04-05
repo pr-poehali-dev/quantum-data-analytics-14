@@ -8,6 +8,7 @@ export interface Section {
   showButton?: boolean
   buttonText?: string
   instruments?: { name: string; icon: string }[]
+  faq?: { q: string; a: string }[]
 }
 
 export interface SectionProps extends Section {
