@@ -13,6 +13,7 @@ export interface Section {
   teachers?: { name: string; instrument: string; experience: string; photo: string }[]
   reviews?: { name: string; text: string; instrument: string }[]
   contacts?: { icon: string; label: string; value: string }[]
+  socials?: { icon: string; label: string; href: string }[]
 }
 
 export interface SectionProps extends Section {

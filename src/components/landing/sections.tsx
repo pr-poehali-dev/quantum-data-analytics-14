@@ -120,6 +120,11 @@ export const sections = [
       { icon: 'MapPin', label: 'Адрес', value: 'Санкт-Петербург, Невский проспект, 115' },
       { icon: 'Clock', label: 'Режим работы', value: 'Пн–Сб: 10:00 – 21:00' },
       { icon: 'Mail', label: 'Email', value: 'info@leggeromusicschool.ru' },
+    ],
+    socials: [
+      { icon: 'Send', label: 'Telegram', href: '#' },
+      { icon: 'Music', label: 'ВКонтакте', href: '#' },
+      { icon: 'Instagram', label: 'Instagram', href: '#' },
     ]
   },
   {

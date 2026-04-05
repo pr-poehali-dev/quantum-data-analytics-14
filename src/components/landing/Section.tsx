@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, reviews, contacts, onBooking }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, reviews, contacts, socials, onBooking }: SectionProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
@@ -182,6 +182,28 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
                   <p className="text-white text-sm font-medium">{item.value}</p>
                 </div>
               </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {socials && (
+          <motion.div
+            className="flex gap-3 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.5 }}
+          >
+            {socials.map((s, i) => (
+              <motion.a
+                key={s.label}
+                href={s.href}
+                title={s.label}
+                className="w-11 h-11 rounded-full border border-neutral-700 flex items-center justify-center text-neutral-400 hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isActive ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.3, delay: 0.5 + i * 0.08 }}
+              >
+                <Icon name={s.icon} fallback="Link" size={18} />
+              </motion.a>
             ))}
           </motion.div>
         )}
