@@ -33,10 +33,11 @@ export const sections = [
     title: 'Наша школа',
     content: 'Уютные залы, профессиональные инструменты и атмосфера, в которой хочется творить.',
     gallery: [
-      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/502ac108-9b8c-48cb-9115-e2d90b4cf470.jpg', caption: 'Зал с роялем' },
-      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/9d462a19-06d8-41ce-81a9-469afa1ed01f.jpg', caption: 'Урок гитары' },
-      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/7c3985a3-14b6-41f4-9204-9267b0448e0a.jpg', caption: 'Скрипка' },
-      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/2cdc3832-46de-4d24-8f60-7da138b29381.jpg', caption: 'Урок вокала' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/bucket/f6151cc2-fa24-47fb-8ee7-bda17f7dc2d9.jpg', caption: 'Зал вокала' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/bucket/a37c5735-e745-428c-9a05-c9363e54c39f.jpg', caption: 'Класс фортепиано' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/bucket/7053e853-226e-4a80-bc18-725085f67e5b.jpg', caption: 'Зал гитары' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/bucket/33b65764-e4bd-4d47-834d-796e9ba5cc3e.jpg', caption: 'Зал фортепиано' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/bucket/a690e2fc-a9cd-4d14-8d77-9353d36aba40.jpg', caption: 'Зал барабанов' },
     ]
   },
   {
