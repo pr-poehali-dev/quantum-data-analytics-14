@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, onBooking }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, onBooking }: SectionProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
@@ -64,6 +64,35 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               >
                 <Icon name={item.icon} fallback="Music" size={16} className="text-[#FF4D00]" />
                 {item.name}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {teachers && (
+          <motion.div
+            className="flex flex-wrap gap-6 mt-10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {teachers.map((teacher, i) => (
+              <motion.div
+                key={teacher.name}
+                className="flex items-center gap-4 border border-neutral-800 rounded-2xl px-5 py-4 bg-neutral-900/50"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isActive ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.12 }}
+              >
+                <img
+                  src={teacher.photo}
+                  alt={teacher.name}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-neutral-700"
+                />
+                <div>
+                  <p className="text-white font-semibold">{teacher.name}</p>
+                  <p className="text-[#FF4D00] text-sm">{teacher.instrument}</p>
+                  <p className="text-neutral-500 text-xs mt-0.5">{teacher.experience}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>

@@ -29,6 +29,31 @@ export const sections = [
     ]
   },
   {
+    id: 'teachers',
+    title: 'Наши преподаватели',
+    content: 'Профессионалы с музыкальным образованием и многолетним опытом обучения.',
+    teachers: [
+      {
+        name: 'Елена Соколова',
+        instrument: 'Фортепиано',
+        experience: '12 лет опыта',
+        photo: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/6dfacb32-e330-4a53-8945-4688d07e143e.jpg',
+      },
+      {
+        name: 'Артём Волков',
+        instrument: 'Гитара',
+        experience: '8 лет опыта',
+        photo: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/b90eacca-33ad-4780-928e-0e2b1b653376.jpg',
+      },
+      {
+        name: 'Марина Кузнецова',
+        instrument: 'Вокал',
+        experience: '15 лет опыта',
+        photo: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/66edeeb5-7b60-4684-831a-7d31b13b141f.jpg',
+      },
+    ]
+  },
+  {
     id: 'testimonials',
     title: 'Наши ученики говорят',
     content: 'Сотни учеников уже нашли свой инструмент и влюбились в музыку. Присоединяйся к нашей большой музыкальной семье.'
