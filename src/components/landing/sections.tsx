@@ -29,6 +29,17 @@ export const sections = [
     ]
   },
   {
+    id: 'gallery',
+    title: 'Наша школа',
+    content: 'Уютные залы, профессиональные инструменты и атмосфера, в которой хочется творить.',
+    gallery: [
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/502ac108-9b8c-48cb-9115-e2d90b4cf470.jpg', caption: 'Зал с роялем' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/9d462a19-06d8-41ce-81a9-469afa1ed01f.jpg', caption: 'Урок гитары' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/7c3985a3-14b6-41f4-9204-9267b0448e0a.jpg', caption: 'Скрипка' },
+      { src: 'https://cdn.poehali.dev/projects/59044f27-5ea4-45fd-87d0-fcb64c8eda6c/files/2cdc3832-46de-4d24-8f60-7da138b29381.jpg', caption: 'Урок вокала' },
+    ]
+  },
+  {
     id: 'teachers',
     title: 'Наши преподаватели',
     content: 'Профессионалы с музыкальным образованием и многолетним опытом обучения.',

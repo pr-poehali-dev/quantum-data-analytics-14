@@ -14,6 +14,7 @@ export interface Section {
   reviews?: { name: string; text: string; instrument: string }[]
   contacts?: { icon: string; label: string; value: string }[]
   socials?: { icon: string; label: string; href: string }[]
+  gallery?: { src: string; caption: string }[]
 }
 
 export interface SectionProps extends Section {

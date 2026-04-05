@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import type { SectionProps } from "@/types"
 
-export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, reviews, contacts, socials, onBooking }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, instruments, faq, pricing, teachers, reviews, contacts, socials, gallery, onBooking }: SectionProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
@@ -64,6 +64,33 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               >
                 <Icon name={item.icon} fallback="Music" size={16} className="text-[#FF4D00]" />
                 {item.name}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {gallery && (
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-10 max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {gallery.map((item, i) => (
+              <motion.div
+                key={i}
+                className="relative group overflow-hidden rounded-2xl aspect-square"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isActive ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+              >
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span className="text-white text-xs font-medium">{item.caption}</span>
+                </div>
               </motion.div>
             ))}
           </motion.div>
